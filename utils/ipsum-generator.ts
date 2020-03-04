@@ -7,7 +7,7 @@ class IpsumGenerator {
       this.setup();
   }
 
-  setup() {
+  private setup() {
       const textArr = this._text.split(' ');
       this._ngrams = textArr.reduce((acc, cur: string, i: number) => {
           const next = textArr[i + 1];
@@ -35,22 +35,22 @@ class IpsumGenerator {
   }
 
   // returns random number
-  randomItem(arr: string[] | number[]): number {
+  private randomItem(arr: string[] | number[]): number {
       return Math.floor(Math.random() * (arr.length));
   }
 
   // takes in a object returns a string
-  pickNextWord(relatedWords) {
+  private pickNextWord(relatedWords: RelatedWords) {
       const relatedWordsArray: string[] =  Object.keys(relatedWords);
       const randPick: string = relatedWordsArray[this.randomItem(relatedWordsArray)];
-      const randomNumber = Math.random();
+      const randomNumber: number = Math.random();
       if (relatedWords[randPick]['per'] >= randomNumber) {
           return randPick;
       }
       return this.pickNextWord(relatedWords);
   }
 
-  generateText(firstPar: boolean, num: number) {
+  public generateText(firstPar: boolean, num: number): string {
       const keyList: string[] = Object.keys(this._ngrams);
       let currentGram: string = firstPar ? keyList[0] : keyList[this.randomItem(keyList)];
       let result: string = firstPar ? currentGram : currentGram.charAt(0).toUpperCase() + currentGram.slice(1);
@@ -76,7 +76,7 @@ class IpsumGenerator {
       return result;
   }
 
-  generateRichText(numOfParagraph: number) {
+  public generateRichText(numOfParagraph: number): string {
       let ipsum: string = '';
       for (let i=0; i < numOfParagraph; i++) {
           ipsum += `<p>${this.generateText(i === 0, this.paragraphLength())}</p>`;
@@ -84,7 +84,7 @@ class IpsumGenerator {
       return ipsum;
   }
 
-  paragraphLength() {
+  private paragraphLength(): number {
       const parLength = [50, 75, 100, 125];
       return  parLength[this.randomItem(parLength)];
   }

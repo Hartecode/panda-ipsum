@@ -1,37 +1,39 @@
-class IpsumGenerator {
-  private _text: string;
+export class IpsumGenerator {
   private _ngrams: Ngram;
 
   constructor(text: string) {
-      this._text = text;
-      this.setup();
+      this._ngrams = this.setup(text);
   }
 
-  private setup() {
-      const textArr = this._text.split(' ');
-      this._ngrams = textArr.reduce((acc, cur: string, i: number) => {
-          const next = textArr[i + 1];
+  private setup(text: string): Ngram {
+      const textArr = text.split(' ');
+      return textArr.reduce((acc, cur: string, i: number) => {
+          const next: string = textArr[i + 1];
           if (i === textArr.length - 1)  return acc;
 
           if (!(cur in acc)) {
-              acc[cur] = {};
-              acc[cur]['relatedWords'] = {};
-              acc[cur]['overAllTotal'] = 0;
+              acc[cur] = {
+                relatedWords: {},
+                overAllTotal: 0
+              };
           }            
 
-          if(!acc[cur]['relatedWords'][next]) {
-              acc[cur]['relatedWords'][next] = { total: 0};
+          if(!acc[cur].relatedWords[next]) {
+              acc[cur].relatedWords[next] = { 
+                per: 0,
+                total: 0
+              };
           }
 
-          acc[cur]['relatedWords'][next]['total'] = ++acc[cur]['relatedWords'][next]['total'];
+          acc[cur].relatedWords[next].total = ++acc[cur].relatedWords[next].total;
 
-          acc[cur]['overAllTotal'] = ++acc[cur]['overAllTotal'];
+          acc[cur].overAllTotal = ++acc[cur].overAllTotal;
 
-          for (let key in acc[cur]['relatedWords']) {
-              acc[cur]['relatedWords'][key]['per'] = acc[cur]['relatedWords'][key]['total'] / acc[cur]['overAllTotal'];
+          for (let key in acc[cur].relatedWords) {
+              acc[cur].relatedWords[key].per = acc[cur].relatedWords[key].total / acc[cur].overAllTotal;
           }
           return acc;
-      }, {});
+      }, <Ngram>{});
   }
 
   // returns random number
@@ -40,7 +42,7 @@ class IpsumGenerator {
   }
 
   // takes in a object returns a string
-  private pickNextWord(relatedWords: RelatedWords) {
+  private pickNextWord(relatedWords: RelatedWords): string {
       const relatedWordsArray: string[] =  Object.keys(relatedWords);
       const randPick: string = relatedWordsArray[this.randomItem(relatedWordsArray)];
       const randomNumber: number = Math.random();
@@ -106,5 +108,3 @@ interface RelatedWords {
         total: number; // total of times used
     }
 }
-
-export default IpsumGenerator;

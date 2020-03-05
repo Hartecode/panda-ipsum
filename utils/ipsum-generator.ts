@@ -1,4 +1,4 @@
-export class IpsumGenerator {
+export default class IpsumGenerator {
   private _ngrams: Ngram;
 
   constructor(text: string) {
@@ -85,6 +85,14 @@ export class IpsumGenerator {
       }
       return ipsum;
   }
+
+  public generateIpsumArray(numOfParagraph: number): string[] {
+    let ipsum: string[] = [];
+    for (let i=0; i < numOfParagraph; i++) {
+        ipsum.push(this.generateText(i === 0, this.paragraphLength()));
+    }
+    return ipsum;
+}
 
   private paragraphLength(): number {
       const parLength = [50, 75, 100, 125];

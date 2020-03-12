@@ -1,4 +1,5 @@
 import * as React from 'react'
+import styleCss from './ipusmUpdateForm.css'
 
 type Props = {
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => Promise<void>;
@@ -7,9 +8,9 @@ type Props = {
 }
 
 const IpsumUpdateForm: React.FunctionComponent<Props> = ({ onSubmit, count, onChange }) => (
-  <form onSubmit={onSubmit}>
+  <form className="root" onSubmit={onSubmit}>
     <label>
-      Select the number of paragraphs :
+      <span>Select the number of paragraphs:</span>
       <input
       id="count-ipsum"
       type="number"
@@ -18,7 +19,8 @@ const IpsumUpdateForm: React.FunctionComponent<Props> = ({ onSubmit, count, onCh
       onChange={onChange}
       min="1" max="99"/>
     </label>
-    <input type="submit" value="Submit" />
+    <button type="submit">Generate</button>
+    <style jsx>{styleCss}</style>
   </form>
 )
 

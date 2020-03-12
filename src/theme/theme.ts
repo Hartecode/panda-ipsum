@@ -1,3 +1,5 @@
+import css from 'styled-jsx/css'
+
 export const buttonColor = '#0b5d0b'
 export const textColor1 = `#313131`
 export const textColor2 = '#fff'
@@ -40,3 +42,20 @@ export const fontSize600 = '2rem'; // 32
 export const fontSize700 = '2.5rem'; // 40
 export const fontSize800 = '3rem'; // 48
 export const fontSize900 = '4rem'; // 64
+
+export const bodyCss: string = css.global`
+  body {
+    background-image:
+    repeating-linear-gradient(90deg, ${backgroundColor100}, ${backgroundColor200} ${spacing300}, ${backgroundColor200} ${spacing300}, ${backgroundColor100} ${spacing600}, ${backgroundColor200} ${spacing600}, ${backgroundColor300} ${spacing700});
+  }
+
+  button {
+    background: ${buttonColor};
+    color: ${textColor2};
+    cursor: pointer;
+    font-size: ${fontSize300};
+    height: ${spacing900};
+    padding: 0.5rem ${spacing400};
+    text-transform: uppercase;
+  }
+`

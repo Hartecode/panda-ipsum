@@ -1,7 +1,8 @@
 import * as React from 'react'
 import Head from 'next/head'
 import Header from '../header/header'
-import layoutCss, { bodyCss } from './layout.css'
+import layoutCss from './layout.css'
+import {bodyCss} from '../../theme/theme'
 
 type Props = {
   title?: string

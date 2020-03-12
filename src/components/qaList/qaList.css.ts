@@ -18,7 +18,7 @@ export default css `
     margin: 0;
   }
 
-  @media screen and (min-width: 43.75rem) {
+  @media screen and (min-width: 43.75rem ) {
 
     .root {
       grid-column-gap: ${themes.spacing500};

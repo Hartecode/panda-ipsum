@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState,  useRef } from 'react'
 import { NextPage } from 'next'
 import fetch from 'isomorphic-unfetch'
 import useSWR from 'swr'
 import IpsumUpdateForm from '../inputUpdateForm/IpsumUpdateForm'
-import IpsumSection from '../lpsumSection'
+import IpsumSection from '../ipsumSection/lpsumSection'
 import QaList from '../qaList/qaList'
 import landingCss from './landing.css'
+import addToClipBoard from '../../utils/clip-board'
 
 
 interface IpsumResponse {
@@ -18,10 +19,11 @@ async function fetcher(url: string): Promise<Response> {
 }
 
 const Landing: NextPage = () => {
-  const [count, setCount] = useState(1);
-  const [ipsumArr, setIpsumArr] = useState();
+  const contentRef = useRef<HTMLElement>(null)
+  const [count, setCount] = useState<number>(1)
+  const [ipsumArr, setIpsumArr] = useState<string[]>()
 
-  const { data, error } = useSWR('/api/ipsum/1', fetcher);
+  const { data, error } = useSWR('/api/ipsum/1', fetcher)
   let firstLoad: string[];
   if (error) firstLoad = ['Sorry there was an issue']
 
@@ -33,8 +35,13 @@ const Landing: NextPage = () => {
     setIpsumArr((json as unknown as IpsumResponse)?.richIpsumArray)
   }
 
-  const onCopy = () => {
-    console.log('copy')
+  const onCopy = async() => {
+    if (contentRef?.current) {
+      const text: string = contentRef?.current?.innerText || ''
+      const result  = await addToClipBoard(text)
+      console.log(result)
+    }
+    
   }
 
   return (
@@ -48,11 +55,13 @@ const Landing: NextPage = () => {
         Copy
       </button>
       <IpsumSection
+        ref={contentRef}
         items={ipsumArr ? ipsumArr : firstLoad}>
       </IpsumSection>
       <style jsx>{landingCss}</style>
     </main>
   )
 }
+
 
 export default Landing

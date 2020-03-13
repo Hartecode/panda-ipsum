@@ -16,4 +16,8 @@ export default css `
     margin: auto;
     min-height: 85vh;
   }
+
+  button {
+    align-self: baseline;
+  }
 `

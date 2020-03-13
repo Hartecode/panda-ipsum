@@ -23,9 +23,9 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
       throw new Error('The request must be 99 and under')
     }
 
-    const richIpsumArray = ipsumInstance.generateIpsumArray(numOfPar);
+    const ipsumArray = ipsumInstance.generateIpsumArray(numOfPar);
 
-    res.status(200).json({richIpsumArray})
+    res.status(200).json({ipsumArray})
   } catch (err) {
     console.log(err);
     res.status(400).json({ statusCode: 400, message: err.message })

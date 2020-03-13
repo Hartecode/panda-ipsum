@@ -9,4 +9,8 @@ export default css `
     padding: ${themes.spacing400};
     color: ${themes.textColor2};
   }
+
+  a {
+    color: white;
+  }
 `

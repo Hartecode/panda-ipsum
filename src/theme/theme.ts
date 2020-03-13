@@ -53,6 +53,7 @@ export const bodyCss: string = css.global`
 
   button {
     background: ${buttonColor};
+    border: none;
     color: ${textColor2};
     cursor: pointer;
     font-size: ${fontSize300};

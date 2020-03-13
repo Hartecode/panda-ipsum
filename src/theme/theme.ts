@@ -2,7 +2,7 @@ import css from 'styled-jsx/css'
 
 export const buttonColor = '#0b5d0b'
 export const textColor1 = `#313131`
-export const textColor2 = '#fff'
+export const textColor2 = 'rgb(255, 255, 255)'
 export const layoutWidth = '62.5rem'
 export const logoImgMin = '6rem'
 export const logoImgMax = '8rem'
@@ -12,6 +12,7 @@ export const backgroundColor100 = '#073707'
 export const backgroundColor200 = '#118511'
 export const backgroundColor300 = '#654100'
 export const backgroundColor400 = '#f3f3f3'
+export const backgroundColor500 = '#041d03'
 
 //spacing 
 export const spacing25 = '0.0625rem' //1px
@@ -47,6 +48,7 @@ export const bodyCss: string = css.global`
   body {
     background-image:
     repeating-linear-gradient(90deg, ${backgroundColor100}, ${backgroundColor200} ${spacing300}, ${backgroundColor200} ${spacing300}, ${backgroundColor100} ${spacing600}, ${backgroundColor200} ${spacing600}, ${backgroundColor300} ${spacing700});
+    margin: 0;
   }
 
   button {

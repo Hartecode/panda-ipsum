@@ -17,6 +17,9 @@ const Layout: React.FunctionComponent<Props> = ({
       <title>{title}</title>
       <meta charSet="utf-8" />
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+      <meta name="description" content="Panda ipsum is a text generator for placeholder text. Great for people who want their love of pandas to show in their development process."/>
+      <meta name="keywords" content="Panda, Ipsum, panda, ispum, Panda Ipsum, panda ipsum, developer, programer, placeholder text, lorem ipsum, lorem"/>
     </Head>
     <Header></Header>
     {children}

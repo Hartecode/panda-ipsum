@@ -21,8 +21,8 @@ const Layout: React.FunctionComponent<Props> = ({
     <Header></Header>
     {children}
     <footer>
-      <hr />
-      <span>I'm here to stay (Footer)</span>
+      <div>©2020 Panda Ipsum</div>
+      <div>Created and operated by <a href="https://www.hartecode.com/">Sean Harte</a></div>
     </footer>
     <style global jsx>{bodyCss}</style>
     <style jsx>{layoutCss}</style>

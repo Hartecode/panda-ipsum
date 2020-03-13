@@ -9,7 +9,7 @@ export const landingPageQA: LandingPageQA[] = [
   },
   {
     question: 'How it works?',
-    answer: "Just select the amount of paragraphs you want and click generate. Sorry we couldn't make it much easier the that"
+    answer: "Just select the amount of paragraphs you want and click generate. Sorry we couldn't make it much easier."
   }
 ]
 

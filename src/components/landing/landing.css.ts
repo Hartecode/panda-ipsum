@@ -19,5 +19,11 @@ export default css `
 
   button {
     align-self: baseline;
+    margin-right: ${themes.spacing400};
+  }
+
+  .copy-container {
+    align-items: baseline;
+    display: flex;
   }
 `

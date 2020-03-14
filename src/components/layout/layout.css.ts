@@ -6,7 +6,7 @@ export default css `
   footer {
     background-color: ${themes.backgroundColor500};
     height: ${themes.spacing1000};
-    padding: ${themes.spacing400};
+    padding: ${themes.spacing600};
     color: ${themes.textColor2};
   }
 

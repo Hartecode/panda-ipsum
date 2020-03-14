@@ -10,7 +10,7 @@ export default css `
     display: flex;
     flex-direction: column;
     font-size: ${themes.fontSize300};
-    padding: 0 ${themes.spacing400} ${themes.spacing900} ${themes.spacing400};
+    padding: 0 ${themes.spacing600} ${themes.spacing900} ${themes.spacing600};
     position: relative;
     max-width: ${themes.layoutWidth};
     margin: auto;

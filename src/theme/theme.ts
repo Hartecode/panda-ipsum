@@ -48,6 +48,7 @@ export const bodyCss: string = css.global`
   body {
     background-image:
     repeating-linear-gradient(90deg, ${backgroundColor100}, ${backgroundColor200} ${spacing300}, ${backgroundColor200} ${spacing300}, ${backgroundColor100} ${spacing600}, ${backgroundColor200} ${spacing600}, ${backgroundColor300} ${spacing700});
+    font-family: 'Baloo 2', sans-serif;
     margin: 0;
   }
 

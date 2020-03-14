@@ -13,5 +13,6 @@ Panda Ipsum is a fun site made to generate random [Lorem Ipsum](https://en.wikip
   <li>Next.js</li>
   <li>Typescript</li>
   <li>styled-jsx</li>
+  <li>Google Analytics</li>
   <li><a href="https://zeit.co">Zeit</a></li>
 </ul>

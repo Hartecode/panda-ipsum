@@ -7,10 +7,8 @@ export default css `
     align-items: center;
     display: flex;
     flex-flow: wrap;
-    margin: auto;
-    margin-bottom: 6rem;
-    margin-top: ${themes.spacing800};
-    max-width: 400px;
+    margin: ${themes.spacing800} auto;
+    max-width: 25rem;
     position: relative;
   }
 
@@ -30,7 +28,7 @@ export default css `
     box-sizing: border-box;
     font-size: ${themes.fontSize500};
     padding: 0 ${themes.spacing400};
-    width: 70px;
+    width: 4.375rem;
   }
 
   button {

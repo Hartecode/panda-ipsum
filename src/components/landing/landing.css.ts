@@ -25,5 +25,6 @@ export default css `
   .copy-container {
     align-items: baseline;
     display: flex;
+    margin-bottom: ${themes.spacing500}
   }
 `

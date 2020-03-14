@@ -30,7 +30,6 @@ export default css `
     box-sizing: border-box;
     font-size: ${themes.fontSize500};
     padding: 0 ${themes.spacing400};
-    text-align: end;
     width: 70px;
   }
 

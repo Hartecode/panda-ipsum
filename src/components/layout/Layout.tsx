@@ -1,17 +1,32 @@
-import * as React from 'react'
+import React, { useEffect } from 'react'
 import Head from 'next/head'
 import Header from '../header/header'
 import layoutCss from './layout.css'
 import {bodyCss} from '../../theme/theme'
+import { initGA, logPageView } from "../../utils/googleAnalytics"
 
 type Props = {
   title?: string
 }
 
+interface Window {
+  GA_INITIALIZED?: boolean;
+}
+
 const Layout: React.FunctionComponent<Props> = ({
   children,
   title = 'This is the default title',
-}) => (
+}) => {
+
+  useEffect(() => {
+    if (!(window as Window).GA_INITIALIZED) {
+      initGA();
+      (window as Window).GA_INITIALIZED = true
+    }
+    logPageView()
+  });
+  
+  return (
   <React.Fragment>
     <Head>
       <title>{title}</title>
@@ -33,5 +48,6 @@ const Layout: React.FunctionComponent<Props> = ({
     <style jsx>{layoutCss}</style>
   </React.Fragment>
 )
+}
 
 export default Layout

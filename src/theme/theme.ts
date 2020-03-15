@@ -46,22 +46,13 @@ export const fontSize900 = '4rem'; // 64
 
 export const bodyCss: string = css.global`
 
-  @font-face {
-    font-family: 'Baloo 2';
-    src: url('/fonts/Baloo2-Regular.ttf')  format('truetype');
-  }
-
-  @font-face {
-    font-family: 'Baloo 2';
-    src: url('/fonts/Baloo2-Bold.ttf') format('truetype');
-    font-weight: bold;
-  }
+  @import url('https://fonts.googleapis.com/css?family=Baloo+2:400,700&display=swap');
   
 
   body {
     background-image:
     repeating-linear-gradient(90deg, ${backgroundColor100}, ${backgroundColor200} ${spacing300}, ${backgroundColor200} ${spacing300}, ${backgroundColor100} ${spacing600}, ${backgroundColor200} ${spacing600}, ${backgroundColor300} ${spacing700});
-    font-family: 'Baloo 2', sans-serif;
+    font-family: 'Baloo 2', cursive;
     margin: 0;
   }
 

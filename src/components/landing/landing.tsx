@@ -32,9 +32,11 @@ const Landing: NextPage<IpsumResponse> = (props) => {
 
   const updateIpsum = async (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const json = await fetcher(`./api/ipsum/${count}`)
+    if (!count) setCount(1)
+    const json = await fetcher(`./api/ipsum/${(count) ? count : 1}`)
     setIpsumArr((json as unknown as IpsumResponse)?.ipsumArray)
     setShowAlert(false)
+
   }
 
   const onCopy = async() => {

@@ -47,7 +47,11 @@ const Landing: NextPage<IpsumResponse> = (props) => {
       })
       setShowAlert(true)
     }
-    
+  }
+
+  const updateCount = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = parseInt(e.target.value, 10);
+    setCount(val);
   }
 
   const showAlertComp = (alert && showAlert) ? <Alert {...alert}></Alert> : null
@@ -58,7 +62,7 @@ const Landing: NextPage<IpsumResponse> = (props) => {
       <IpsumUpdateForm 
         onSubmit={updateIpsum}
         count={count}
-        onChange ={(e) => setCount(Number(e.target.value))}/>
+        onChange ={updateCount}/>
       <div className="copy-container">
         <button onClick={onCopy}>
           Copy

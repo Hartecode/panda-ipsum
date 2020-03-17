@@ -27,7 +27,8 @@ export default css `
     border: none;
     box-sizing: border-box;
     font-size: ${themes.fontSize500};
-    padding: 0 ${themes.spacing400};
+    padding: 0 ${themes.spacing200};
+    text-align: center;
     width: 4.375rem;
   }
 
